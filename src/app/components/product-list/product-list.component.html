@@ -1,0 +1,30 @@
+<div class="container">
+    <h2 style="text-align: center;">Quản lí sản phẩm</h2>
+
+    <table class="table ">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th></th>
+                <th></th>
+                <th><button class="btn btn-warning" (click)="gotoProductAdd()">Thêm</button></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor=" let item of products; index as i">
+                <td>{{i + 1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td width="100"><img src="{{item.img}}"></td>
+                <td>
+                    <button class="btn btn-danger" (click)="removeItem(item.id!)">Xóa</button>
+                </td>
+                <td>
+                    <button class="btn btn-dark" routerLink="/admin/product/{{item.id}}/edit">Sửa</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
